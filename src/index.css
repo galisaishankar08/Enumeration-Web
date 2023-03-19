@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: url('./images/backgrund.png');
+  object-fit: cover; */
+  background: linear-gradient(248.47deg, #5470B5 0%, #0F172A 99.15%);
+  height: 100vh;
+}
+
+.container{
+  background: linear-gradient(116.98deg, rgba(217, 217, 217, 0.48) 1.61%, rgba(217, 217, 217, 0.12) 101.61%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.nav{
+  background: linear-gradient(116.98deg, rgba(217, 217, 217, 0.8) 1.61%, rgba(217, 217, 217, 0.2) 101.61%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.ScrollStyle
+{
+  max-height: 470px;
+  overflow-y: scroll;
+}
