@@ -47,33 +47,39 @@ function App() {
   return (
     <>
       <div className='container h-fit w-10/12 rounded-2xl'>
-        <div className='h-[100px] nav rounded-2xl flex justify-between'>
+        <div className='h-fit nav rounded-2xl flex flex-col md:flex-row items-center justify-between pb-[5%] md:pb-0'>
           <div className='m-auto text-[48px] text-white'>
             ENUM
           </div>
 
-          <form onSubmit={handleSubmit} className='m-auto flex'>
-            <input className={urlLabel === true ? 'h-12 rounded-l-lg outline-none px-4 pb-1 text-[24px]' : 'h-12 rounded-l-lg px-4 pb-1 text-[24px] outline-none border-4 border-red-500'} name="url" onChange={handleUrlChange} placeholder='google.com' type="text" />
-            { urlLabel === true ?
+          <form onSubmit={handleSubmit} className='m-auto flex justify-center'>
+            <input className={urlLabel === true ? 'h-12 rounded-l-lg outline-none px-4 pb-1 text-[24px] w-10/12 md:w-fit' : 'h-12 rounded-l-lg px-4 pb-1 text-[24px] w-10/12 md:w-fit outline-none border-4 border-red-500'} name="url" onChange={handleUrlChange} placeholder='google.com' type="text" />
 
-              <label className=' rounded-r-lg py-[12px] px-4 cursor-pointer bg-[#0F172A]'><input hidden type='submit' /><FaSearch color='#FFFFFF' size='18'/></label>
+            { urlLabel === true ?
+              <label className='rounded-r-lg py-3 px-2 md:py-[12px] md:px-4 md:w-2/3 cursor-pointer bg-[#0F172A]'>
+                <input hidden type='submit' />
+                <FaSearch color='#FFFFFF' size='18'/>
+              </label>
               :
-              <label className=' rounded-r-lg cursor-not-allowed py-[12px] px-4 bg-red-600 text-white'><FaSearch color='#FFFFFF' size='18'/></label>
+              <label className='rounded-r-lg py-3 px-2 md:py-[12px] md:px-4 md:w-2/3 cursor-not-allowed bg-red-600 text-white'>
+                <FaSearch color='#FFFFFF' size='18'/>
+              </label>
             }
           </form>
         </div>
 
-        <div className='flex space-x-10 p-5'>
-          <div className='bg-[#D9D9D9] bg-opacity-60 h-[550px] w-1/4 backdrop-blur-lg rounded-2xl '>
-              <ul className='mx-12 my-12 text-white text-center space-y-10'>
-                <li className='bg-[#0F172A] w-[190px] p-5 rounded-lg cursor-pointer' onClick={() => setDisplay('whois')}>Whois</li>
-                <li className='bg-[#0F172A] w-[190px] p-5 rounded-lg cursor-pointer' onClick={() => setDisplay('dig')}>Dig</li>
-                <li className='bg-[#0F172A] w-[190px] p-5 rounded-lg cursor-pointer' onClick={() => setDisplay('nslookup')}>Nslookup</li>
-                <li className='bg-[#0F172A] w-[190px] p-5 rounded-lg cursor-pointer' onClick={() => setDisplay('ssl')}>SSL Certificate</li>
-                <li className='bg-[#0F172A] w-[190px] p-5 rounded-lg cursor-pointer' onClick={() => setDisplay('hunter')}>Hunter IO</li>
+
+        <div className='md:flex md:space-x-10 p-5'>
+          <div className='bg-[#D9D9D9] bg-opacity-60 w-full md:h-[550px] md:w-1/4 border-b-2 border-black backdrop-blur-lg rounded-t-2xl md:rounded-2xl overflow-y-auto scrollbar-hide'>
+              <ul className=' text-white gap-4 text-center p-5 md:py-10 md:px-0 flex md:flex-col md:gap-y-10 '>
+                <li className='bg-[#0F172A] md:w-5/6 p-2 md:p-4 rounded-lg cursor-pointer m-auto' onClick={() => setDisplay('whois')}>Whois</li>
+                <li className='bg-[#0F172A] md:w-5/6 p-2 md:p-4 rounded-lg cursor-pointer m-auto' onClick={() => setDisplay('dig')}>Dig</li>
+                <li className='bg-[#0F172A] md:w-5/6 p-2 md:p-4 rounded-lg cursor-pointer m-auto' onClick={() => setDisplay('nslookup')}>Nslookup</li>
+                <li className='bg-[#0F172A] md:w-5/6 p-2 md:p-4 rounded-lg cursor-pointer m-auto' onClick={() => setDisplay('ssl')}>SSLCertificate</li>
+                <li className='bg-[#0F172A] md:w-5/6 p-2 md:p-4 rounded-lg cursor-pointer m-auto' onClick={() => setDisplay('hunter')}>HunterIO</li>
               </ul>
           </div>
-          <div className='bg-[#D9D9D9] bg-opacity-90 h-[550px] w-3/4 rounded-2xl p-10 break-all overflow-y-auto scrollbar-hide'>
+          <div className='bg-[#D9D9D9] bg-opacity-90 h-[400px] md:h-[550px] w-full md:w-3/4 rounded-b-2xl  md:rounded-2xl p-4 md:p-10 break-all overflow-y-auto scrollbar-hide'>
             <div className={ display==='whois' ? '' : 'hidden'}>
               {
                 whois ? 
