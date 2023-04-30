@@ -29,7 +29,7 @@ function App() {
     setDisplay('loader');
     console.log(url);
 
-    Axios.post("http://127.0.0.1:5000/api", {
+    Axios.post("https://webenum.azurewebsites.net/api", {
         url: url,
       })
         .then((response) => {
